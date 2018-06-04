@@ -27,8 +27,9 @@ export default {
   },
   methods: {
     login (event) {
+      this.$http.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest'
       this.$http.defaults.headers.common['Authorization'] = 'Basic ' + btoa(this.username + ':' + this.password) // Send basic auth header (base 64 encoded concat of login and pass)
-      this.$http.post('http://localhost:8080/user', {login: this.username, password: this.password, enabled: true}).then((response) => {
+      this.$http.post('http://localhost:8080/api/login', {login: this.username, password: this.password, enabled: true}).then((response) => {
         console.log(response)
       }).catch((error) => {
         console.log(error)

@@ -19,7 +19,7 @@ export default {
     }
   },
   mounted () {
-    this.$http.get('http://localhost:8080/api/users').then((response) => { this.users = response }).then((error) => {
+    this.$http.get('http://localhost:8080/api/users').then((response) => { this.users = response.data }).catch((error) => {
       console.log(error)
       this.$router.push('/')
     })
