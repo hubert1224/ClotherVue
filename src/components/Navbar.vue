@@ -8,13 +8,17 @@
     </div>
     <div class="navbar-menu">
       <div class="navbar-end">
-        <router-link to="/interface" class="navbar-item">
+        <p v-if="this.$parent.authenticated" class="helloText navbar-item has-text-weight-bold">Witaj, {{this.$parent.username}}!</p>
+        <router-link v-if="this.$parent.authenticated" to="/interface" class="navbar-item">
           <button class="button is-primary">Interfejs</button>
         </router-link>
-        <router-link to="/login" class="navbar-item">
+        <a v-if="this.$parent.authenticated" class="navbar-item">
+          <button v-on:click="logout" class="button is-primary">Wyloguj</button>
+        </a>
+        <router-link v-if="this.$parent.authenticated === false" to="/login" class="navbar-item">
           <button class="button is-primary">Logowanie</button>
         </router-link>
-        <router-link to="/register" class="navbar-item">
+        <router-link v-if="this.$parent.authenticated === false" to="/register" class="navbar-item">
           <button class="button is-primary">Rejestracja</button>
         </router-link>
       </div>
@@ -29,11 +33,22 @@ export default {
     return {
 
     }
+  },
+  methods: {
+    logout () {
+      this.$http.get('http://localhost:8080/logout')
+      this.$parent.authenticated = false
+      this.$parent.username = ''
+      delete this.$http.defaults.headers.common['Authorization']
+      this.$router.push('/')
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .helloText {
+    color:#7957d5 !important;
+  }
 </style>

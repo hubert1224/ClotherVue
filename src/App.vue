@@ -14,7 +14,8 @@ export default {
   name: 'Entry',
   data () {
     return {
-
+      authenticated: false,
+      username: ''
     }
   },
   components: {
