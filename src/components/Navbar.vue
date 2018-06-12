@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-warning" role="navigation">
+  <nav class="navbar is-transparent" role="navigation">
     <div class="navbar-brand">
       <router-link to="/" class="navbar-item has-text-primary">
         <h1 class="is-size-2 is-italic">C</h1>
@@ -50,5 +50,9 @@ export default {
 <style scoped>
   .helloText {
     color:#7957d5 !important;
+  }
+
+  nav {
+      background-color: transparent;
   }
 </style>

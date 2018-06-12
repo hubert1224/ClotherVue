@@ -54,6 +54,10 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.columns {
+  margin-left: 10%;
+}
+
   .card-header {
     background-color: #7957d5;
   }

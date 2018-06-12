@@ -10,6 +10,8 @@ Vue.config.productionTip = false
 
 Vue.prototype.$http = axios
 Vue.use(buefy)
+Vue.prototype.$Vue = Vue
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -1,16 +1,5 @@
 <template>
-  <div class="card">
-    <div class="card-image">
-      <figure class="image is-4by3">
-        <img class="background-image " src="@/assets/close-up-clothes-clothesline-1122167.jpg" />
-      </figure>
-    </div>
-    <div class="card-content">
-      <div class="content">
-        Hello
-      </div>
-    </div>
-  </div>
+    <img class="background-image " src="@/assets/close-up-clothes-clothesline-1122167.jpg" />
 </template>
 
 <script>
@@ -25,9 +14,18 @@ export default {
 </script>
 
 <style scoped>
-  /* .background-image {
-    height:800px;
-    width: 100%;
-  } */
+.card {
+  height: 90vh !important;
+  overflow: hidden;
+}
+
+img {
+  position: absolute;
+  top:0px;
+  left:0px;
+  width:100%;
+  height:100vh;
+  z-index: -1;
+}
 
 </style>

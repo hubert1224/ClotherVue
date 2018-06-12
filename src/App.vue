@@ -2,20 +2,22 @@
   <div id="app">
     <link rel="stylesheet" href="//cdn.materialdesignicons.com/2.0.46/css/materialdesignicons.min.css">
     <navbar/>
-    <div class="container">
+    <transition name="routerAnimation">
       <router-view/>
-    </div>
+    </transition>
   </div>
 </template>
 
 <script>
 import navbar from '@/components/navbar.vue'
+
 export default {
   name: 'Entry',
   data () {
     return {
       authenticated: false,
-      username: ''
+      username: '',
+      userId: -1
     }
   },
   components: {
@@ -25,6 +27,20 @@ export default {
 </script>
 
 <style>
+
+.routerAnimation-enter-active, .routerAnimation-leave-active {
+  transition-property: opacity;
+  transition-duration: 1s;
+}
+
+.routerAnimation-enter-active {
+  transition-delay: 0.5s;
+}
+
+.routerAnimation-enter, .routerAnimation-leave-active {
+  opacity: 0;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
